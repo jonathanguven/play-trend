@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/lift-buddy.iml" filepath="$PROJECT_DIR$/.idea/lift-buddy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tune-tracker/.idea/tune-tracker.iml" filepath="$PROJECT_DIR$/../tune-tracker/.idea/tune-tracker.iml" />
     </modules>
   </component>
 </project>
