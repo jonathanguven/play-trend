@@ -26,8 +26,8 @@
 
 <!--  Header  -->
 <div class="flex flex-col items-center justify-center pd-4 md:px-0">
-    <h1 class="text-3xl font-bold leading-tight md:text-5xl lg:leading-[1.1]">
-        TuneTracker
+    <h1 class="text-3xl font-bold leading-tight md:text-5xl lg:leading-[1.1] mb-3">
+        PlayTrend
     </h1>
 
     <span class="max-w-[750px] text-lg text-muted-foreground sm:text-xl text-center sm:text-left">

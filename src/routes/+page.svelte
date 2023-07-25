@@ -6,20 +6,22 @@
     import { Label } from "$components/ui/label";
     import { Switch } from "$components/ui/switch";
     import Header from "$components/Header.svelte";
+    import Footer from "$components/Footer.svelte";
+    import Login from "$components/Login.svelte";
 
 </script>
-
-<div class="flex items-center flex-col gap-8 px-8 pt-8 min-h-screen">
-    <!-- github link and dark theme toggle -->
-
-
-    <!-- Header Text -->
-    <Header />
-    <!-- Sign in Button -->
-    <div class= "flex items-center justify-items-center">
-        <Button class="bg-slate-700 text-white flex flex-col items-center gap-2 px-8 py-12 my-32">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="spotify logo" class="w-36 h-36">
-            <div>Login To View Statistics</div>
-        </Button>
+<svelte:head>
+    <title>PlayTrend</title>
+</svelte:head>
+<section class="flex items-center flex-col gap-8 px-8 pt-8">
+    <!-- Header Component -->
+    <div>
+        <Header />
+        <Login />
     </div>
-</div>
+
+</section>
+<Footer />
+
+
+
