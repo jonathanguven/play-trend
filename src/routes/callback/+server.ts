@@ -1,7 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from '@sveltejs/kit';
 import fetch from 'node-fetch';
-import querystring from 'querystring';
 
 const id = import.meta.env.VITE_CLIENT_ID;
 const secret = import.meta.env.VITE_CLIENT_SECRET;
@@ -15,5 +14,48 @@ export const GET: RequestHandler = async (request) => {
             body: 'Error: No code found'
         };
     }
-    return json(code);
+
+    const token_url = 'https://accounts.spotify.com/api/token';
+    const body = new URLSearchParams({
+        client_id: id,
+        client_secret: secret,
+        grant_type: 'authorization_code',
+        code: code,
+        redirect_uri: redirect
+    })
+    const response = await fetch(token_url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: body
+    });
+    const tokenData = await response.json();
+    if (tokenData.error) {
+        return {
+            status: 400,
+            body: tokenData.error_description
+        };
+    }
+
+    const dataResponse = await fetch('https://api.spotify.com/v1/me', {
+        headers: {
+            'Authorization': `Bearer ${tokenData.access_token}`
+        }
+    });
+    const userData = await dataResponse.json();
+    console.log(userData);
+
+    return new Response('Redirect', {
+        status: 303,
+        headers: {
+            Location: `/`,
+            'set-cookie': `userData=${userData}; SameSite=Strict; Max-Age=60000`
+        }
+    })
+
 }
+
+
+
+

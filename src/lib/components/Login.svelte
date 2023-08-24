@@ -1,23 +1,24 @@
-<script>
+<script lang="ts">
     import { Button } from "$components/ui/button/";
     import { page } from '$app/stores'
 
     const id = import.meta.env.VITE_CLIENT_ID;
-    const redirect_uri = encodeURIComponent(import.meta.env.VITE_REDIRECT_URI);
+    const redirect_uri = import.meta.env.VITE_REDIRECT_URI;
 
     let LOGGED_IN = false;
 
-    const code = $page.url.searchParams.get('code');
-
-    if (code) {
-        LOGGED_IN = true;
-    }
-
     function loginClick() {
-        console.log(`id: ${id}`);
-        console.log(`redirect: ${redirect_uri}`);
-        window.location.href = `https://accounts.spotify.com/authorize?client_id=${id}&redirect_uri=${redirect_uri}&scope=user-read-private%20user-read-email%20user-modify-playback-state%20user-read-playback-state%20user-top-read%20user-read-recently-played&response_type=code`;
+            let scope = 'user-read-private user-read-email user-modify-playback-state user-read-playback-state user-top-read user-read-recently-played';
+            let args = new URLSearchParams({
+                response_type: 'code',
+                client_id: id,
+                scope: scope,
+                redirect_uri: redirect_uri,
+            });
+
+            window.location.href = `https://accounts.spotify.com/authorize?` + args;
     }
+
 </script>
 
 <!-- Sign in Button -->
