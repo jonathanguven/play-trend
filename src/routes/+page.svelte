@@ -8,6 +8,9 @@
 
     $: accessToken = $page.url.searchParams.get('access_token');
 
+    function test() {
+        console.log(accessToken);
+    }
     export let data: PageData;
 
 </script>
@@ -18,11 +21,9 @@
     <section class="border-2 flex items-center flex-col gap-8 px-8 pt-8 mt-20">
         <div>
             <Header />
-            {#if accessToken === null}
+            {#if !accessToken}
                 <Login />
-            {:else if accessToken === 'ERR'}
-                <p class="dark text-white flex flex-col items-center gap-2 px-6 py-14">Error logging in! Please reload the page and try again.</p>
-            {:else if accessToken}
+            {:else}
 
                 <div>
                     <p class="border-2 dark text-white flex flex-col items-center gap-2 px-6 pt-6 max-w-full">Logged in as {data.user.id}</p>
