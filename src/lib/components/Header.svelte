@@ -5,8 +5,8 @@
 
     let link = 'https://github.com/jonathanguven/tune-tracker';
 
-    $: user = $page.url.searchParams.get('LOGGED_IN');
-    $: pfp = $page.url.searchParams.get('user_pfp');
+    // $: user = $page.url.searchParams.get('LOGGED_IN');
+    // $: pfp = $page.url.searchParams.get('user_pfp');
 </script>
 
 <!--  header ui icons  -->
@@ -14,10 +14,10 @@
 <!--  user info  -->
     <div class="absolute top-8 left-8">
         <div class="flex items-center space-x-2">
-            {#if user}
-                <img src={pfp} alt="" style="width:3em;height:3em">
-                <Label for="dark-mode">{user}</Label>
-            {/if}
+            <!--{#if user}-->
+            <!--    <img src={pfp} alt="" style="width:3em;height:3em">-->
+            <!--    <Label for="dark-mode">{user}</Label>-->
+            <!--{/if}-->
         </div>
     </div>
 <!--  github logo/link  -->

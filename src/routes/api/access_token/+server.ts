@@ -41,31 +41,13 @@ export const GET: RequestHandler = async ({url}) => {
         });
     }
     const accessToken = tokenData.access_token;
-
-    const dataResponse = await fetch('https://api.spotify.com/v1/me', {
-        headers: {
-            'Authorization': `Bearer ${accessToken}`
-        }
-    });
-    const user = await dataResponse.json();
-
-    const top_tracks_response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=20', {
-        headers: {
-            'Authorization': `Bearer ${accessToken}`
-        }
-    });
-    const top_tracks = await top_tracks_response.body;
-
-    console.log({
-        user,
-        top_tracks
-    });
+    console.log(tokenData);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    return new Response(top_tracks, {
+    return new Response(accessToken, {
         headers: {
-            Location: `/?user=${user.display_name}`,
+            Location: `/?access_token=${accessToken}`,
             'content-type': 'application/json',
         },
         status: 302,
