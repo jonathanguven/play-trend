@@ -1,4 +1,4 @@
-<div class="flex p-4 mt-48">
+<div class="border-2 flex p-4 mt-48">
     <div class="flex-1 flex list-none gap-8 border-box px-4 py-2">
         <div>
             <a href="https://github.com/jonathanguven/play-trend" target="_blank">Github</a>

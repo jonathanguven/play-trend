@@ -1,4 +1,3 @@
-import { json } from '@sveltejs/kit';
 import type { RequestHandler } from '@sveltejs/kit';
 import fetch from 'node-fetch';
 
@@ -33,31 +32,15 @@ export const GET: RequestHandler = async (request) => {
         body: body
     });
     const tokenData = await response.json();
-    if (tokenData.error) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        return new Response({
-            status: 400,
-            body: tokenData.error_description
-        });
-    }
-
-    const dataResponse = await fetch('https://api.spotify.com/v1/me', {
-        headers: {
-            'Authorization': `Bearer ${tokenData.access_token}`
-        }
-    });
-    const userData = await dataResponse.json();
-    console.log(userData);
-
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return new Response('Redirect', {
         status: 303,
         headers: {
-            Location: `/?LOGGED_IN=TRUE`,
-            'set-cookie': `userData=${userData}; SameSite=Strict; Max-Age=60000`
-        }
+            'content-type': 'application/json',
+            Location: `/`,
+        },
+        body: tokenData
     });
 
 }
