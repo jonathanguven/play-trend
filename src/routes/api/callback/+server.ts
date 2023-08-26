@@ -1,9 +1,10 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import fetch from 'node-fetch';
+import { env } from '$env/dynamic/private';
 
-const id = import.meta.env.VITE_CLIENT_ID;
-const secret = import.meta.env.VITE_CLIENT_SECRET;
-const redirect = import.meta.env.VITE_REDIRECT_URI;
+const id = env.CLIENT_ID;
+const secret = env.CLIENT_SECRET;
+const redirect = env.REDIRECT_URI;
 
 export const GET: RequestHandler = async ({url}) => {
     const code = url.searchParams.get('code');

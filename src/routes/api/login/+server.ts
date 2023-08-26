@@ -1,8 +1,8 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import {goto} from "$app/navigation";
+import { env } from '$env/dynamic/private';
 
-const id = import.meta.env.VITE_CLIENT_ID;
-const redirect = import.meta.env.VITE_REDIRECT_URI;
+const id = env.CLIENT_ID;
+const redirect = env.REDIRECT_URI;
 
 export const GET: RequestHandler = async () => {
     const sessionID = '1234'
@@ -15,8 +15,7 @@ export const GET: RequestHandler = async () => {
         state: sessionID,
         show_dialog: true
     });
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+
     return new Response(null, {
         status: 302,
         headers: {
