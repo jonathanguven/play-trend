@@ -42,13 +42,12 @@ export const GET: RequestHandler = async ({url}) => {
         });
     }
     const accessToken = tokenData.access_token;
-    console.log(tokenData);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return new Response(accessToken, {
         headers: {
-            Location: `/?access_token=${accessToken}`,
+            Location: `/stats?access_token=${accessToken}`,
             'content-type': 'application/json',
         },
         status: 302,

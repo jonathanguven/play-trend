@@ -12,7 +12,7 @@ export const load: PageLoad = async ({ fetch, url }) => {
     });
     const user = await dataResponse.json();
 
-    const top_tracks_response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=20', {
+    const top_tracks_response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=10', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
