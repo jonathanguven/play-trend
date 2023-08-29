@@ -1,0 +1,11 @@
+{
+	"/": [
+		"src/routes/+page.ts"
+	],
+	"/api/callback": [
+		"src/routes/api/callback/+server.ts"
+	],
+	"/api/login": [
+		"src/routes/api/login/+server.ts"
+	]
+}
