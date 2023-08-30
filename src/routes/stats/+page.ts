@@ -24,8 +24,8 @@ export const load: PageLoad = async ({ fetch, url }) => {
     // console.log(tracks)
 
     console.log('track artists')
-    tracks.items.forEach((song) => {
-        console.log(song.name);
+    tracks.items.forEach((song, i) => {
+        console.log(`${i+1}. ${song.name}`);
         song.artists.forEach((artist) => {
             console.log(` - ${artist.name}`)
         });

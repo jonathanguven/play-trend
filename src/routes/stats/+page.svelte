@@ -4,34 +4,54 @@
     import Footer from "$components/Footer.svelte";
     import Login from "$components/Login.svelte";
 
-    let header = {};
     export let data: PageData;
+
     const user = data.user;
     const tracks = data.tracks.items;
+    $:url = user.external_urls.spotify
+
+    let header = {};
     header = {
         pfp: user.images[0].url,
-        name: user.display_name
+        name: user.display_name,
     }
+
+    let currentDate = new Date();
+
+    function formatDate(date) {
+        return date.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }).toUpperCase();
+    }
+
+    $: formattedDate = formatDate(currentDate);
 </script>
 
 <svelte:head>
     <title>PlayTrend</title>
 </svelte:head>
 <section>
-    <section class="flex items-center flex-col gap-8 px-8 pt-8 mt-20">
-        <div>
+    <section class="flex items-center flex-col gap-8 px-8 pt-8 mt-14">
+        <div class="max-w-md">
             <Header {...header}/>
-            <p class="border-2 dark text-white flex flex-col items-center gap-2 px-6 pt-2 max-w-full">Logged in as {header.name}</p>
-            <div>
+            <p class="dark text-white flex flex-col items-center justify-center gap-1 px-6 pb-6 max-w-full text-lg">
+                {formattedDate}
+            </p>
+            
+            <div class="text-white">
                 <ul>
                     {#each tracks as { name, artists }, i}
-                        <li>
-                            {i + 1}: { name } by { artists }
+                        <li class="flex leading-8 text-md">
+                            <span class="w-8 mr-1 flex-shrink-0 text-left text-white">{i + 1}: </span>
+                            <span> { name } <span class="text-gray-500">— {artists.map(artist => artist.name).join(', ')}</span></span>
                         </li>
                     {/each}
                 </ul>
             </div>
-            <p><a href="/" class="border-2 dark text-white flex flex-col items-center gap-2 px-6 py-6">Click here to log out</a></p>
+            <p><a href="/" class="dark text-white flex flex-col items-center gap-2 px-6 py-6 text-lg">Click here to log out</a></p>
         </div>
         <Footer />
     </section>
