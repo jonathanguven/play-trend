@@ -16,16 +16,11 @@ Once youre inside the project directory, install the project dependencies with `
 npm install
 ```
 
-## Deployment
+## Starting project
 To run your project on a local server, run the following command:
 ```bash
 npm run dev
-```
-To create a production version of your app:
-
-```bash
-npm run build
+# or npm run dev -- --open to directly open server in your default browser
 ```
 
-You can preview the production build with `npm run preview`.
 
