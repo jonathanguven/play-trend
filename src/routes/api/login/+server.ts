@@ -13,8 +13,8 @@ export const GET: RequestHandler = async () => {
         scope: scope,
         redirect_uri: redirect,
         state: sessionID,
-        show_dialog: true
-    });
+        show_dialog: 'true'
+    })
 
     return new Response(null, {
         status: 302,

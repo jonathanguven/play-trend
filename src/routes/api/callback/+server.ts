@@ -11,9 +11,8 @@ export const GET: RequestHandler = async ({url}) => {
     if (!code) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        return new Response({
-            status: 400,
-            body: 'Error: No code found'
+        return new Response('Error: No code found', {
+            status: 400
         });
     }
     const token_url = 'https://accounts.spotify.com/api/token';
@@ -31,14 +30,13 @@ export const GET: RequestHandler = async ({url}) => {
         },
         body: body
     });
-    const tokenData = await response.json();
+    const tokenData: any = await response.json();
 
     if (tokenData.error) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        return new Response({
-            status: 400,
-            body: tokenData.error_description
+        return new Response(tokenData.error_description, {
+            status: 400
         });
     }
     const accessToken = tokenData.access_token;
