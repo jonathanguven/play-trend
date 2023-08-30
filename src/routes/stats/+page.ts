@@ -18,11 +18,9 @@ export const load: PageLoad = async ({ fetch, url }) => {
         }
     });
     const tracks = await top_tracks_response.json();
+
     console.log('user')
     console.log(user)
-    // console.log('tracks')
-    // console.log(tracks)
-
     console.log('track artists')
     tracks.items.forEach((song, i) => {
         console.log(`${i+1}. ${song.name}`);
@@ -30,7 +28,7 @@ export const load: PageLoad = async ({ fetch, url }) => {
             console.log(` - ${artist.name}`)
         });
     });
-    //console.log(tracks.items[0].artists[0].name)
+
     return {
         user,
         tracks

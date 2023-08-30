@@ -9,8 +9,6 @@ const redirect = env.REDIRECT_URI;
 export const GET: RequestHandler = async ({url}) => {
     const code = url.searchParams.get('code');
     if (!code) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         return new Response('Error: No code found', {
             status: 400
         });
@@ -33,16 +31,12 @@ export const GET: RequestHandler = async ({url}) => {
     const tokenData: any = await response.json();
 
     if (tokenData.error) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         return new Response(tokenData.error_description, {
             status: 400
         });
     }
     const accessToken = tokenData.access_token;
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     return new Response(accessToken, {
         headers: {
             Location: `/stats?access_token=${accessToken}`,

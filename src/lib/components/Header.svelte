@@ -1,23 +1,27 @@
 <script>
-    import { Switch } from "$components/ui/switch/";
     import { Label} from "$components/ui/label";
-    import { page } from "$app/stores";
 
     let link = 'https://github.com/jonathanguven/tune-tracker';
 
     export let name = 'Not signed in';
     export let pfp = 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg';
-    export let user_link = '/';
+    export let user_link;
 
+    function openAccount() {
+        if (user_link) {
+            window.open(user_link, "_blank");
+        }
+        
+    }
 </script>
 
 <!--  header ui icons  -->
 <div class="my-8">
     <!--  user info  -->
     <div class="absolute top-8 left-8">
-        <div class="flex items-center space-x-2">
-            <img src={pfp} alt="" style="width:3em;height:3em">
-            <Label for="dark-mode">{name}</Label>
+        <div class="flex items-center space-x-2" on:click={openAccount}>
+            <img src={pfp} alt="profile-picture" style="width:3em;height:3em">
+            <Label>{name}</Label>
         </div>
     </div>
     <!--  github logo/link  -->
