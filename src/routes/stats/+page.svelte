@@ -2,18 +2,17 @@
     import type { PageData } from './$types';
     import Header from "$components/Header.svelte";
     import Footer from "$components/Footer.svelte";
-    import Login from "$components/Login.svelte";
 
     export let data: PageData;
 
     const user = data.user;
     const tracks = data.tracks.items;
-    $:url = user.external_urls.spotify
 
     let header = {};
     header = {
         pfp: user.images[0].url,
         name: user.display_name,
+        user_link: user.external_urls.spotify
     }
 
     let currentDate = new Date();

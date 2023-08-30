@@ -5,9 +5,9 @@
 
     let link = 'https://github.com/jonathanguven/tune-tracker';
 
-    $: logged = $page.url.searchParams.get('access_token');
     export let name = 'Not signed in';
     export let pfp = 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg';
+    export let user_link = '/';
 
 </script>
 
