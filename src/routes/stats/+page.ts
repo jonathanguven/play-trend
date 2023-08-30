@@ -17,11 +17,13 @@ export const load: PageLoad = async ({ fetch, url }) => {
             'Authorization': `Bearer ${token}`
         }
     });
-    const top_tracks = await top_tracks_response.json();
+    const tracks = await top_tracks_response.json();
+    console.log('user')
     console.log(user)
-    console.log(top_tracks)
+    console.log('tracks')
+    console.log(tracks)
     return {
         user,
-        top_tracks
+        tracks
     };
 }
