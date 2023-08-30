@@ -17,7 +17,7 @@
 
     let currentDate = new Date();
 
-    function formatDate(date) {
+    function formatDate(date: Date) {
         return date.toLocaleDateString('en-US', {
             weekday: 'long',
             year: 'numeric',
