@@ -19,10 +19,10 @@
 <div class="my-8">
     <!--  user info  -->
     <div class="absolute top-8 left-8">
-        <div class="flex items-center space-x-2" on:click={openAccount}>
-            <img src={pfp} alt="profile-picture" style="width:3em;height:3em">
+        <button class="flex items-center space-x-2" on:click={openAccount}>
+            <img src={pfp} alt="" style="width:3em;height:3em">
             <Label>{name}</Label>
-        </div>
+        </button>
     </div>
     <!--  github logo/link  -->
     <a href={link} target="_blank" rel="noopener noreferrer" class="absolute top-8 right-8">
