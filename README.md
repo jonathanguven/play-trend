@@ -1,17 +1,15 @@
 # Tune Tracker
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Local Setup
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+To setup this project on your own machine, clone this repository and navigate into the working directory:
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+# clone github project
+git clone https://github.com/jonathanguven/play-trend.git
 
-# create a new project in my-app
-npm create svelte@latest my-app
+# navigate into project directory
+cd play-trend
 ```
 
 ## Developing
