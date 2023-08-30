@@ -1,4 +1,7 @@
-# Tune Tracker
+# Playtrend: Your Spotify Playback Spotlight 🎵
+Curious about which songs you've listened to the most? Dive in to see your top 10 most played tracks.
+
+By leveraging Spotify's robust OAuth authentication, Playtrend offers a seamless and secure experience, allowing you to tap into your musical insights in just a few clicks.
 
 ## Local Setup
 
