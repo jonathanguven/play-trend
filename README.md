@@ -3,6 +3,8 @@ Curious about which songs you've listened to the most? Dive in to see your top 1
 
 By leveraging Spotify's robust OAuth authentication, Playtrend offers a seamless and secure experience, allowing you to tap into your musical insights in just a few clicks.
 
+Built with Sveltekit for fast, dynamic user experience.
+
 ## Local Setup
 
 To setup this project on your own machine, clone this repository and navigate into the working directory:
@@ -25,5 +27,4 @@ To run your project on a local server, run the following command:
 npm run dev
 # or npm run dev -- --open to directly open server in your default browser
 ```
-
-
+Feedback and contributions welcome!
