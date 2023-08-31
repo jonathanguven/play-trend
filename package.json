@@ -37,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"bits-ui": "^0.5.3",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
 		"dotenv": "^16.3.1",
