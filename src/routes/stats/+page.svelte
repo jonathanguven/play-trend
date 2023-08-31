@@ -8,8 +8,7 @@
     const user = data.user;
     const tracks = data.tracks.items;
 
-    let header = {};
-    header = {
+    let header = {
         pfp: user.images[0].url,
         name: user.display_name,
         user_link: user.external_urls.spotify
@@ -50,7 +49,7 @@
                     {/each}
                 </ul>
             </div>
-            <p><a href="/" class="dark text-white flex flex-col items-center gap-2 px-6 py-6 text-lg">Click here to log out</a></p>
+            <p><a href="/" class="dark text-white flex flex-col items-center gap-2 px-6 py-8 text-lg">Click here to log out</a></p>
         </div>
         <Footer />
     </section>
