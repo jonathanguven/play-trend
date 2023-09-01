@@ -12,25 +12,33 @@ export const load: PageLoad = async ({ fetch, url }) => {
     });
     const user = await dataResponse.json();
 
-    const top_tracks_response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=10', {
+    const short_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=short_term`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
     });
-    const tracks = await top_tracks_response.json();
+    const short_term = await short_response.json();
 
-    console.log('user')
-    console.log(user)
-    console.log('track artists')
-    tracks.items.forEach((song, i) => {
-        console.log(`${i + 1}. ${song.name}`);
-        song.artists.forEach((artist) => {
-            console.log(` - ${artist.name}`)
-        });
+    const medium_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=medium_term`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
     });
+    const medium_term = await medium_response.json();
 
+    const long_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=long_term`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    const long_term = await long_response.json();
+    // short_term.items.forEach((song) => {
+    //     console.log(song.name);
+    // });
     return {
         user,
-        tracks
+        short_term,
+        medium_term,
+        long_term
     };
 }
