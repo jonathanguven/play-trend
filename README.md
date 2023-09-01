@@ -16,9 +16,10 @@ git clone https://github.com/jonathanguven/play-trend.git
 # navigate into project directory
 cd play-trend
 ```
-Once youre inside the project directory, install the project dependencies with `npm install` (or `pnpm install` or `yarn`):
+Once youre inside the project directory, install the project dependencies with `pnpm install`:
 ```bash
-npm install
+pnpm install
+# make sure you have pnpm installed
 ```
 
 ## Starting project
