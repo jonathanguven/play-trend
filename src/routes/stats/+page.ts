@@ -32,9 +32,7 @@ export const load: PageLoad = async ({ fetch, url }) => {
         }
     });
     const long_term = await long_response.json();
-    // short_term.items.forEach((song) => {
-    //     console.log(song.name);
-    // });
+
     return {
         user,
         short_term,
