@@ -2,7 +2,7 @@
     import type { PageData } from './$types';
     import Header from "$components/Header.svelte";
     import Footer from "$components/Footer.svelte";
-
+    import Logout from "$components/Logout.svelte";
     export let data: PageData;
 
     const user = data.user;
@@ -35,12 +35,12 @@
     <section class="flex items-center flex-col gap-8 px-8 pt-8 mt-14">
         <div class="max-w-md">
             <Header {...header}/>
-            <p class="dark text-white flex flex-col items-center justify-center gap-1 px-6 pb-6 max-w-full text-lg">
+            <p class="dark text-white flex flex-col items-center justify-center px-6 max-w-full text-lg">
                 {formattedDate}
             </p>
             
             <div class="text-white">
-                <ul>
+                <ul class="py-4">
                     {#each tracks as { name, artists }, i}
                         <li class="flex leading-8 text-md">
                             <span class="w-8 mr-1 flex-shrink-0 text-left text-white">{i + 1}: </span>
@@ -49,7 +49,11 @@
                     {/each}
                 </ul>
             </div>
-            <p><a href="/" class="dark text-white flex flex-col items-center gap-2 px-6 py-8 text-lg">Click here to log out</a></p>
+
+            <div class="flex flex-col items-center mt-2">
+                <Logout />
+            </div>
+
         </div>
         <Footer />
     </section>
