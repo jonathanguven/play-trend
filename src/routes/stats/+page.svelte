@@ -1,8 +1,9 @@
 <script lang="ts">
     import type { PageData } from './$types';
-    import Header from "$components/Header.svelte";
     import Footer from "$components/Footer.svelte";
+    import Header from "$components/Header.svelte";
     import Logout from "$components/Logout.svelte";
+
     export let data: PageData;
 
     const user = data.user;
@@ -36,6 +37,7 @@
         <div class="max-w-md">
             <Header {...header}/>
             <p class="text-white flex flex-col items-center justify-center px-6 max-w-full text-lg">{formattedDate}</p>
+            
             <div class="text-white">
                 <ul class="py-4">
                     {#each tracks as { name, artists }, i}
@@ -47,14 +49,10 @@
                 </ul>
             </div>
 
-            <div class="flex flex-col items-center mt-2">
-                <Logout />
-            </div>
-
         </div>
+        <Logout />
         <Footer />
     </section>
-
 </section>
 
 
