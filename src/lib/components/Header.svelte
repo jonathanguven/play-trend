@@ -25,7 +25,7 @@
                     <Avatar.Fallback>NA</Avatar.Fallback>
                 </Avatar.Root>
             {/if}
-            <span>{name}</span>
+            <span class="text-white">{name}</span>
         </button>
     </div>
     <!--  github logo/link  -->
