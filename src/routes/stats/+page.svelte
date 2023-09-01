@@ -35,10 +35,7 @@
     <section class="flex items-center flex-col gap-8 px-8 pt-8 mt-14">
         <div class="max-w-md">
             <Header {...header}/>
-            <p class="dark text-white flex flex-col items-center justify-center px-6 max-w-full text-lg">
-                {formattedDate}
-            </p>
-            
+            <p class="text-white flex flex-col items-center justify-center px-6 max-w-full text-lg">{formattedDate}</p>
             <div class="text-white">
                 <ul class="py-4">
                     {#each tracks as { name, artists }, i}

@@ -1,10 +1,8 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import type { PageData } from './$types';
     import Header from "$components/Header.svelte";
     import Footer from "$components/Footer.svelte";
     import Login from "$components/Login.svelte";
-    import { onMount } from 'svelte';
 
     $: accessToken = $page.url.searchParams.get('access_token');
 
