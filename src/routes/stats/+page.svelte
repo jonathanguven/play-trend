@@ -14,15 +14,16 @@
     let shortTracks = data.short_term.items.map(item => {
         return {
             name: item.name,
-            external_url: item.external_urls.spotify,
+            url: item.external_urls.spotify,
             artists: item.artists.map(artist => artist.name),
             duration: formatDuration(item.duration_ms)
         };
     });
+    console.log(shortTracks[0].url)
     let mediumTracks = data.medium_term.items.map(item => {
         return {
             name: item.name,
-            external_url: item.external_urls.spotify,
+            url: item.external_urls.spotify,
             artists: item.artists.map(artist => artist.name),
             duration: formatDuration(item.duration_ms)
         };
@@ -30,7 +31,7 @@
     let longTracks = data.long_term.items.map(item => {
         return {
             name: item.name,
-            external_url: item.external_urls.spotify,
+            url: item.external_urls.spotify,
             artists: item.artists.map(artist => artist.name),
             duration: formatDuration(item.duration_ms)
         };
@@ -83,16 +84,16 @@
 
             <div class="text-white">
                 <ul class="py-4">
-                    {#each tracks as { name, artists }, i}
+                    {#each tracks as { name, artists, url }, i}
                         <li class="flex leading-8 text-md">
                             <span class="w-8 mr-1 flex-shrink-0 text-left text-white">{i + 1}: </span>
-                            <span> { name } 
+                            <a href={url} target="_blank">{ name }
                                 <span class="text-gray-500"> — 
                                     {#each artists as artist, index (artist)}
                                         {artist}{index < artists.length - 1 ? ', ' : ''}
                                     {/each}
                                 </span>
-                            </span>
+                            </a>
                         </li>
                     {/each}
                 </ul>
