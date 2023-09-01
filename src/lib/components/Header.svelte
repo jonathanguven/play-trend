@@ -4,7 +4,7 @@
     let link = 'https://github.com/jonathanguven/tune-tracker';
 
     export let name = 'Not signed in';
-    export let pfp = 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg';
+    export let pfp = '';
     export let user_link = '';
 
     function openAccount() {
@@ -19,11 +19,12 @@
     <!--  user info  -->
     <div class="absolute top-8 left-8">
         <button class="flex items-center space-x-3 text-sm" on:click={openAccount}>
-            <Avatar.Root>
-                <Avatar.Image src={pfp} alt="profile picture" />
-                <Avatar.Fallback>CN</Avatar.Fallback>
-            </Avatar.Root>
-
+            {#if pfp!==''}
+                <Avatar.Root>
+                    <Avatar.Image src={pfp} />
+                    <Avatar.Fallback>NA</Avatar.Fallback>
+                </Avatar.Root>
+            {/if}
             <span>{name}</span>
         </button>
     </div>
