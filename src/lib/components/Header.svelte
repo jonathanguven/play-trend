@@ -1,7 +1,5 @@
 <script>
-    import { Label} from "$components/ui/label";
     import * as Avatar from "$components/ui/avatar";
-    import { Switch } from "$components/ui/switch";
 
     let link = 'https://github.com/jonathanguven/tune-tracker';
 
@@ -20,13 +18,13 @@
 <div class="my-8">
     <!--  user info  -->
     <div class="absolute top-8 left-8">
-        <button class="flex items-center space-x-3" on:click={openAccount}>
+        <button class="flex items-center space-x-3 text-sm" on:click={openAccount}>
             <Avatar.Root>
                 <Avatar.Image src={pfp} alt="profile picture" />
                 <Avatar.Fallback>CN</Avatar.Fallback>
             </Avatar.Root>
 
-            <Label>{name}</Label>
+            <span>{name}</span>
         </button>
     </div>
     <!--  github logo/link  -->
