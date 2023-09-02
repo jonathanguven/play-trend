@@ -7,6 +7,15 @@ const secret = env.CLIENT_SECRET;
 const redirect = env.REDIRECT_URI;
 
 export const GET: RequestHandler = async ({url}) => {
+    if (url.searchParams.get('error')) {
+        return new Response(null, {
+            headers: {
+                Location: `/`,
+            },
+            status: 302,
+        }); 
+    }
+
     const code = url.searchParams.get('code');
     if (!code) {
         return new Response('Error: No code found', {
