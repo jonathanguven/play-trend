@@ -4,8 +4,8 @@
     import type { PageData } from './$types';
     import Footer from "$components/Footer.svelte";
     import Header from "$components/Header.svelte";
-    import Logout from "$components/Logout.svelte";
     import { Radio } from 'flowbite-svelte'
+    import {Button} from "$components/ui/button";
 
     export let data: PageData;
     $: time = 'short_term';
@@ -19,7 +19,7 @@
             duration: formatDuration(item.duration_ms)
         };
     });
-    console.log(shortTracks[0].url)
+
     let mediumTracks = data.medium_term.items.map(item => {
         return {
             name: item.name,
@@ -100,7 +100,7 @@
             </div>
 
         </div>
-        <Logout />
+        <Button on:click={() => goto('/')} variant="secondary">Click here to log out</Button>
         <Footer />
     </section>
 </section>
