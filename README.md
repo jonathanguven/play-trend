@@ -22,6 +22,16 @@ pnpm install
 # make sure you have pnpm installed
 ```
 
+Now to set up your Spotify Developer app!
+
+You will need to register your own app and get your credentials from the Spotify Developers Dashboard. 
+
+To do so, go to [your Spotify for Developers Dashboard](https://beta.developer.spotify.com/dashboard) and create your application. Then, head into your app settings and register these Redirect URIs:
+
+- http://localhost:5173/api/callback
+
+Click save, and you're ready to run your project!
+
 ## Starting project
 To run your project on a local server, run the following command:
 ```bash
