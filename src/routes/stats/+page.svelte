@@ -50,21 +50,8 @@
         }
     }
     const user = data.user;
-    
 
-    let header = { pfp: user.images[0].url, name: user.display_name, user_link: user.external_urls.spotify };
-
-    let currentDate = new Date();
-    function formatDate(date: Date) {
-        return date.toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        }).toUpperCase();
-    }
-
-    $: formattedDate = formatDate(currentDate);
+    let formattedDate = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
 </script>
 
 <svelte:head>
@@ -72,20 +59,20 @@
 </svelte:head>
 <section>
     <section class="flex items-center flex-col gap-8 px-8 pt-8 mt-12">
-        <div class="max-w-md">
-            <Header {...header}/>
+        <div class="max-w-md flex flex-col items-center">
+            <Header name = {user.display_name} pfp = {user.images[0].url} user_link={user.external_urls.spotify}/>
             <p class="mb-4 text-white flex flex-col items-center justify-center px-6 max-w-full text-lg">{formattedDate}</p>
-            <ul class="flex justify-center items-center w-full rounded-lg border border-gray-200 sm:flex dark:bg-gray-900 dark:border-gray-600 divide-x divide-gray-200 dark:divide-gray-600">
+            <ul class="flex justify-center items-center w-9/12 rounded-lg border border-gray-200 sm:flex dark:bg-gray-900 dark:border-gray-600 divide-x divide-gray-200 dark:divide-gray-600">
                 <li class="w-full"><Radio name="hor-list" class="flex justify-center text-white p-2" bind:group={time} value="short_term">4 weeks</Radio></li>  
                 <li class="w-full"><Radio name="hor-list" class="flex justify-center text-white p-2" bind:group={time} value="medium_term">6 months</Radio></li>
                 <li class="w-full"><Radio name="hor-list" class="flex justify-center text-white p-2" bind:group={time} value="long_term">All time</Radio></li>
             </ul>
 
-            <div class="text-white">
-                <ul class="py-4">
+            <div class="text-white flex justify-center">
+                <ul class="py-4 w-11/12">
                     {#each tracks as { name, artists, url }, i}
                         <li class="flex leading-8 text-md">
-                            <span class="w-8 mr-1 flex-shrink-0 text-right mr-3 text-white">{i + 1}: </span>
+                            <span class="w-max mr-1 flex-shrink-0 text-right mr-3 text-white">{i + 1}: </span>
                             <a href={url} target="_blank">{ name }
                                 <span class="text-gray-500"> — 
                                     {#each artists as artist, index (artist)}
@@ -99,7 +86,7 @@
             </div>
 
         </div>
-        <Button on:click={() => goto('/')} variant="secondary">Click here to log out</Button>
+        <Button on:click={() => goto('/')} variant="secondary" class="-mt-4">Click here to log out</Button>
         <Footer />
     </section>
 </section>
