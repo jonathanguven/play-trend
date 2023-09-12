@@ -52,7 +52,7 @@
     const user = data.user;
     
 
-    $: header = { pfp: user.images[0].url, name: user.display_name, user_link: user.external_urls.spotify };
+    let header = { pfp: user.images[0].url, name: user.display_name, user_link: user.external_urls.spotify };
 
     let currentDate = new Date();
     function formatDate(date: Date) {
