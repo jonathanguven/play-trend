@@ -1,4 +1,5 @@
 <script lang="ts">
+    // faster branch
     import type { PageData } from './$types';
     import { goto } from '$app/navigation';
     import Footer from "$components/Footer.svelte";
