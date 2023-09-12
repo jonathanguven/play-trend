@@ -49,7 +49,6 @@
             break;
         }
     }
-    const user = data.user;
 
     let formattedDate = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
 </script>
@@ -60,7 +59,7 @@
 <section>
     <section class="flex items-center flex-col gap-8 px-8 pt-8 mt-12">
         <div class="max-w-md flex flex-col items-center">
-            <Header name = {user.display_name} pfp = {user.images[0].url} user_link={user.external_urls.spotify}/>
+            <Header name = {data.user.display_name} pfp = {data.user.images[0].url} user_link={data.user.external_urls.spotify}/>
             <p class="mb-4 text-white flex flex-col items-center justify-center px-6 max-w-full text-lg">{formattedDate}</p>
             <ul class="flex justify-center items-center w-9/12 rounded-lg border border-gray-200 sm:flex dark:bg-gray-900 dark:border-gray-600 divide-x divide-gray-200 dark:divide-gray-600">
                 <li class="w-full"><Radio name="hor-list" class="flex justify-center text-white p-2" bind:group={time} value="short_term">4 weeks</Radio></li>  
