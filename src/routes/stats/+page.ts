@@ -1,5 +1,4 @@
 import type { PageLoad } from './$types';
-// faster branch
 export const load: PageLoad = async ({ fetch, url }) => {
     const token = url.searchParams.get('access_token')
     if (!token) {
